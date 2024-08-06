@@ -1,0 +1,12 @@
+npm init -y
+npm i tedious     //para sqlserver
+
+
+https://www.youtube.com/watch?v=UpZiamGmbTs
+https://www.youtube.com/watch?v=UpZiamGmbTs
+
+scain
+
+
+pagina de turnos
+https://www.produbanco.com.ec:8443/Produnet.Web.Turno.Gestion/AgendadorVirtual/SolicitudIdentificacion?codAgencia=69&utm_medium=flyers&utm_campaign=turnero_agencia_69&utm_source=MediosImpresos&utm_term=EC
