@@ -28,8 +28,8 @@ exports.getArea = async(req, res) => {
 
 exports.createArea = async(req, res) => {
     try {
-        const { anombre, aicon, agid} = req.body;
-        const resp = await areaModel.create(anombre, aicon, agid);
+        const { anombre, aicon, agid, alias} = req.body;
+        const resp = await areaModel.create(anombre, aicon, agid, alias);
         return res.status(201).json({
             success: true,
             message: 'Area creada correctamente',

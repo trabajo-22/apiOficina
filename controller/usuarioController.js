@@ -68,7 +68,7 @@ exports.createUsuario = async(req, res) => {
         const existeCedula = await usuarioModel.getCedula(ucedula);
 
         if (existeCedula > 0) {
-            return res.status(400).json({
+            return res.status(201).json({
                 success: false,
                 message: 'La cedula ya existe'
             });

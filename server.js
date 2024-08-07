@@ -18,12 +18,14 @@ const usuario = require('./routes/usuario');
 const turno = require('./routes/turno');
 const area = require('./routes/area');
 const agencia = require('./routes/agencia');
+const codigo = require('./routes/codigo');
 
 
 app.use('/api', usuario)
 app.use('/api', turno)
 app.use('/api', area)
 app.use('/api', agencia)
+app.use('/api', codigo)
 
 
 

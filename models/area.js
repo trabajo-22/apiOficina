@@ -13,6 +13,7 @@ Area.getArea = async(nombre, id) => {
         a.anombre,
         a.aicon,
         a.agid,
+        a.alias,
         a.afecha,
         g.agnombre,
         g.agfecha
@@ -40,18 +41,21 @@ Area.getArea = async(nombre, id) => {
 
 
 
-Area.create = async(anombre, aicon, agid) => {
+
+
+Area.create = async(anombre, aicon, agid,alias) => {
     try {
         const query = `
-           INSERT INTO area (anombre) 
-            OUTPUT  inserted.anombre, aicon, agid
-            VALUES (@anombre, @aicon, @agid)`;
+           INSERT INTO area (anombre, aicon, agid, alias) 
+            OUTPUT  inserted.anombre, inserted.aicon, inserted.agid, inserted.alias
+            VALUES (@anombre, @aicon, @agid, @alias)`;
 
         let cnn = await sql.connect(configsql);
         let result = await cnn.request()
             .input('anombre', sql.NVarChar, anombre)
             .input('aicon', sql.NVarChar, aicon)
             .input('agid', sql.Int, agid)
+            .input('alias', sql.NVarChar, alias)
             .query(query);
 
         await cnn.close();

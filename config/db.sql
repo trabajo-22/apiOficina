@@ -27,10 +27,10 @@ CREATE TABLE area (
     anombre NVARCHAR(200),
     aicon Ntext,
     agid INT,
+    alias NVARCHAR(30),
     afecha DATE DEFAULT GETDATE(),
     FOREIGN KEY (agid) REFERENCES agencia(agid) 
 );
-
 
 
 
@@ -41,17 +41,24 @@ CREATE TABLE turnos (
     tnombres NVARCHAR(200),
     tapellidos NVARCHAR(200),
     tcorreo NVARCHAR(200),
-    tturno NVARCHAR(10),
     ttipoturno NVARCHAR(200),
     idarea INT,  
     idagencia INT,
-    tfecha DATE DEFAULT GETDATE()
-    FOREIGN KEY (idarea) REFERENCES area(aid) 
-    FOREIGN KEY (idagencia) REFERENCES agencia(agid) 
+    idcodigo INT,
+    tfecha DATE DEFAULT GETDATE(),
+    FOREIGN KEY (idarea) REFERENCES area(aid) ,
+    FOREIGN KEY (idagencia) REFERENCES agencia(agid) ,
+    FOREIGN KEY (idcodigo) REFERENCES codigo(cid) 
 );
 
 
 
+CREATE TABLE codigo(
+    cid INT IDENTITY(1,1) PRIMARY KEY,
+    ccodigo INT,
+    cfecha DATETIME DEFAULT GETDATE()
+    
+)
 
 
 

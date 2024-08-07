@@ -3,25 +3,6 @@ const turnoModel = require('../models/turnos');
 
 
 
-exports.getUltimoTurno = async(req, res) => {
-    try {
-
-        const turno = await turnoModel.ultimoTurno();
-        res.status(200).json({
-            success: true,
-            data: turno
-        });
-
-    } catch (error) {
-        res.status(500).json({
-            success: false,
-            message: 'Error en la base de datos',
-            error: error.message
-        });
-    }
-
-}
-
 
 
 
@@ -31,12 +12,12 @@ exports.getUltimoTurno = async(req, res) => {
 
 exports.createTurno = async(req, res) => {
     try {
-        const { tcedula, tnombres, tapellidos, tcorreo, tturno, ttipoturno, idarea, idagencia } = req.body;
+        const { tcedula, tnombres, tapellidos, tcorreo,  ttipoturno, idarea, idagencia, idcodigo } = req.body;
 
         // const tuno = turnoModel.ultimoTurno()
 
 
-        const resp = await turnoModel.create(tcedula, tnombres, tapellidos, tcorreo, tturno, ttipoturno, idarea, idagencia);
+        const resp = await turnoModel.create(tcedula, tnombres, tapellidos, tcorreo,  ttipoturno, idarea, idagencia, idcodigo);
         const LISTA = await turnoModel.getTurnoById(resp.tid)
 
 

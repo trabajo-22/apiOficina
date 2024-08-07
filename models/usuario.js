@@ -55,7 +55,6 @@ Usuario.getAll = () => {
 
 
 Usuario.getCedula = async(ucedula) => {
-
     try {
         const sqlQuery = 'SELECT COUNT(*) AS count FROM usuario WHERE ucedula = @ucedula';
         let cnn = await sql.connect(configsql);
