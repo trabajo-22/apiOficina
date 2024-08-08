@@ -32,6 +32,13 @@ Agencia.listAgencia = async() => {
 
 
 
+
+
+
+
+
+
+
 Agencia.getAgencia = async(nombre, id) => {
     try {
         console.log(nombre, id)

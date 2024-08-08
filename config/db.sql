@@ -57,7 +57,6 @@ CREATE TABLE codigo(
     cid INT IDENTITY(1,1) PRIMARY KEY,
     ccodigo INT,
     cfecha DATETIME DEFAULT GETDATE()
-    
 )
 
 

@@ -8,9 +8,8 @@ exports.login = async(req, res) => {
 
     try {
         const ucedula = req.params.cedula;
-
         const existeCedula = await usuarioModel.getCedula(ucedula);
-
+        
         if (existeCedula > 0) {
             const lista = await usuarioModel.OnUser(ucedula);
             return res.status(200).json({
@@ -68,7 +67,7 @@ exports.createUsuario = async(req, res) => {
         const existeCedula = await usuarioModel.getCedula(ucedula);
 
         if (existeCedula > 0) {
-            return res.status(201).json({
+            return res.status(400).json({
                 success: false,
                 message: 'La cedula ya existe'
             });
@@ -80,7 +79,6 @@ exports.createUsuario = async(req, res) => {
                 data: resp
             });
         }
-
     } catch (error) {
 
         return res.status(500).json({

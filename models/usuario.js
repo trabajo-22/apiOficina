@@ -67,22 +67,6 @@ Usuario.getCedula = async(ucedula) => {
     } catch (error) {
         throw error;
     }
-
-
-    // var dataResult = [];
-    // try {
-    //     const sqlQuery = 'SELECT COUNT(*) AS count FROM usuario WHERE ucedula = @ucedula';
-    //     let cnn = await sql.connect(configsql)
-    //     let result = await cnn.request()
-    //         .input('ucedula', sql.VarChar(15), ucedula)
-    //         .query(sqlQuery)
-    //     dataResult = result.recordset
-    //     await cnn.close()
-
-    //     return dataResult
-    // } catch (error) {
-    //     throw error;
-    // }
 }
 
 
@@ -130,38 +114,6 @@ Usuario.listaUsuario = async() => {
 
 
 
-/*
-const GetTipoCuentasPorCliente = async (req = request, res = response) => {
-    const identificacion = req.user;
-    var dataResult = [];
-
-    console.log(identificacion)
-
-    let sqlQuery = ` SELECT
-                        TipoCuenta.codigo, 
-                        TipoCuenta.nombre,
-                        CuentaMaestro.secuencial
-                    FROM Clientes.Cliente
-                    INNER JOIN CaptacionesVista.CuentaCliente ON CuentaCliente.secuencialCliente = Cliente.secuencial
-                    INNER JOIN CaptacionesVista.CuentaMaestro ON CuentaMaestro.secuencial = CuentaCliente.secuencialCuenta
-                    INNER JOIN CaptacionesVista.TipoCuenta ON TipoCuenta.codigo = CuentaMaestro.codigoTipoCuenta
-                    INNER JOIN Personas.Persona ON Persona.secuencial = Cliente.secuencialPersona
-                    WHERE TipoCuenta.estaActivo = 1 and Persona.identificacion = @identificacion and CuentaMaestro.codigoEstado = 'A' `
-
-    let cnn = await sql.connect(configsql)
-    let result = await cnn.request()
-        .input('identificacion', sql.VarChar(15), identificacion)
-        .query(sqlQuery)
-
-    dataResult = result.recordset
-    await cnn.close()
-
-    res.status(200).json({ "response": dataResult });
-}
-*/
-
-
-
 Usuario.create = async(ucedula, unombres, uapellidos, ucorreo) => {
     try {
         const query = `
@@ -190,27 +142,7 @@ Usuario.create = async(ucedula, unombres, uapellidos, ucorreo) => {
     }
 };
 
-// Usuario.create = (ucedula, unombres, uapellidos, ucorreo) => {
-//     return new Promise((resolve, reject) => {
-//         const query = `
-//             INSERT INTO usuario (ucedula, unombres, uapellidos, ucorreo) 
-//             VALUES (@ucedula, @unombres, @uapellidos, @ucorreo)`;
 
-//         const request = new Request(query, (err, rowCount) => {
-//             if (err) {
-//                 return reject(err);
-//             }
-//             resolve({ rowCount });
-//         });
-
-//         request.addParameter('ucedula', TYPES.Int, ucedula);
-//         request.addParameter('unombres', TYPES.NVarChar, unombres);
-//         request.addParameter('uapellidos', TYPES.NVarChar, uapellidos);
-//         request.addParameter('ucorreo', TYPES.NVarChar, ucorreo);
-
-//         db.execSql(request);
-//     });
-// };
 
 
 module.exports = Usuario;

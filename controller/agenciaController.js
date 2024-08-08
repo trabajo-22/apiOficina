@@ -6,6 +6,9 @@ const agenciaModel = require('../models/agencia');
 
 
 
+
+
+
 exports.listaAgencia = async(req, res) => {
     try {
         const usuarios = await agenciaModel.listAgencia();

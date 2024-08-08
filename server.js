@@ -9,7 +9,7 @@ app.use(cors());
 app.use(bodyParser.json());
 
 const PORT = process.env.PORT || 3000;
-const HOST = '192.168.20.29';
+const HOST = 'localhost';
 
 
 
